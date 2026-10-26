@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUM</title>
+</head>
+<body>
+    <h1>Datadog Lab</h1>
+
+    <button id="botao" onclick="validar()">Click</button>
+    
+</body>
+
+<script src="https://www.datadoghq-browser-agent.com/us1/v7/datadog-rum.js" type="text/javascript" crossorigin>
+    // ------- baixando SDK do RUM -------
+
+</script>
+
+
+<script>
+    // ------- inicializando download do SDK do RUM -------
+
+    window.DD_RUM && window.DD_RUM.init({
+        applicationId: 'preencher',
+        clientToken: 'preencher',
+        site: 'datadoghq.com',
+        service: 'preencher',
+        env: 'preencher',				// e.g. 'prod', 'staging-1', 'dev'
+        version: '',	// e.g. '1.0.0'
+        sessionSampleRate: 100,			// capture 100% of sessions
+        sessionReplaySampleRate: 100,	// capture 20% of sessions with replay
+        trackResources: true,			// Enable Resource tracking
+        trackUserInteractions: true,	// Enable Action tracking
+        trackLongTasks: true,			// Enable Long Tasks tracking
+    
+        // ----- Recommended Options -----
+        // allowedTracingUrls: '<BACKEND_URL>',		// Enable distributed tracing
+        // defaultPrivacyLevel: 'mask-user-input',	// 'mask-user-input' | 'allow' | 'mask'
+    });
+ 
+</script>
+
+
+
+<script src="https://www.datadoghq-browser-agent.com/us1/v7/datadog-logs.js" type="text/javascript" crossorigin>
+    // ------- Baixando SDK de Logs -------
+
+</script>
+
+
+
+<script>
+    // ------- inicializando SDK de Logs -------
+
+    window.DD_LOGS && window.DD_LOGS.init({
+        clientToken: 'preencher',
+        site: 'datadoghq.com',
+        service: 'preencher',
+        env: 'preencher',
+        forwardErrorsToLogs: true,
+        sessionSampleRate: 100,
+    });
+</script>
+
+
+<script>
+    // ------- Gerando um Log -------
+
+    botao = document.getElementById("botao");
+    botao.addEventListener("click", logar());
+
+    function logar (){
+        const log = window.DD_LOGS && window.DD_LOGS.logger.info('Botão clicado', { name: 'Lucas', id: 1 });
+        console.log('Log enviado')
+    }
+
+    function validar(){
+        fetch('http://127.0.0.1:8001/validation-1')
+    }
+</script>
+</html>

@@ -1,4 +1,4 @@
-Entendido\! O laboratório abordará APM, Distributed Tracing e Logs no backend, e, na parte do frontend, somente RUM e geração de logs pelo Browser Logs, sem integração entre RUM e APM.
+O laboratório abordará APM, Distributed Tracing e Logs no backend, e, na parte do frontend, somente RUM e geração de logs pelo Browser Logs, sem integração entre RUM e APM.
 
 Você pode substituir os trechos correspondentes do README pelas versões abaixo.
 
